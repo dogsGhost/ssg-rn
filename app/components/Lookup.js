@@ -6,12 +6,23 @@ import React, {
   View
 } from 'react-native'
 
+import Button from './Button'
+
+import Speech from 'react-native-speech'
 import { em, colors } from './../styles/main'
 
 const Match = (props) => {
   let esText = ''
   let enText = ''
   const esp = props.word.es
+
+  const handleListen = () => {
+    Speech.speak({
+      text: esText,
+      voice: 'es-ES'
+    });
+  }
+
   if (esp) {
     if (typeof esp === 'string') {
       esText = esp
@@ -24,6 +35,7 @@ const Match = (props) => {
   } else {
     esText = props.word
   }
+
   return (
     <View>
       {
@@ -32,6 +44,11 @@ const Match = (props) => {
           false
       }
       <Text style={[styles.p, styles.result]}>{esText}</Text>
+      {
+        enText ?
+          <Button clickHandler={handleListen}>LISTEN</Button> :
+          false
+      }
     </View>
   )
 }
@@ -55,7 +72,11 @@ export default class Lookup extends Component {
       word: '',
       match: false
     }
+
+    // this._handleListen = this._handleListen.bind(this)
   }
+
+
 
   _findWord() {
     const noMatch = 'Sorry, looks like we haven\'t learned that word yet!'
@@ -80,7 +101,10 @@ export default class Lookup extends Component {
         />
         {
           this.state.word ?
-            <Match word={this._findWord()} /> :
+            <View>
+              <Match word={this._findWord()} />
+
+            </View> :
             false
         }
       </View>
