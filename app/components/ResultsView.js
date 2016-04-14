@@ -27,12 +27,12 @@ export default ResultsView = (props) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.quizScore}>
-        <Text style={{ fontWeight: 'bold' }}>You scored {percentage}%</Text> ({numCorrect} out of {dataLen})
-      </Text>
       <Button clickHandler={props.onNewQuiz}>
         NEW QUIZ
       </Button>
+      <Text style={styles.quizScore}>
+        <Text style={{ fontWeight: 'bold' }}>You scored {percentage}%</Text> ({numCorrect} out of {dataLen})
+      </Text>
       <ScrollView style={{ flex: 1 }}>
         {answerNodes}
       </ScrollView>
