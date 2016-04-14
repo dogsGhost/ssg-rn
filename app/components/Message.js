@@ -6,7 +6,7 @@ const Message = (props) => (
   </Text>
 )
 
-const s = StyleSheet.create({
+const styles = StyleSheet.create({
   error: {
     fontWeight: 'bold',
     textAlign: 'center'

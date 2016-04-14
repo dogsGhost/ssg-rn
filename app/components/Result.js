@@ -9,20 +9,20 @@ import { em, colors } from './../styles/main'
 
 export default Result = (props) => {
   // set style based on if answer is correct or not
-  let itemStyle = props.answer.isCorrect ? s.correct : s.incorrect
+  let itemStyle = props.answer.isCorrect ? styles.correct : styles.incorrect
   let srcItem = props.answer.srcItem
 
   return (
-    <View style={[s.answerItem, itemStyle]}>
-        <Text style={[s.answerLine, s.answerPhrase]}>
+    <View style={[styles.answerItem, itemStyle]}>
+        <Text style={[styles.answerLine, styles.answerPhrase]}>
           <Text style={{ fontWeight: 'bold' }}>Phrase {props.index + 1 + ''}:</Text> {srcItem.english}
         </Text>
-        <Text style={s.answerLine}>
+        <Text style={styles.answerLine}>
           <Text>Your answer</Text>: {props.answer.inputValue}
         </Text>
         {
           !props.answer.isCorrect ?
-            <Text style={[s.answerLine, { fontWeight: 'bold' }]}>
+            <Text style={[styles.answerLine, { fontWeight: 'bold' }]}>
               Correct answer: {srcItem.translation}
             </Text> :
             false
@@ -31,7 +31,7 @@ export default Result = (props) => {
   )
 }
 
-const s = StyleSheet.create({
+const styles = StyleSheet.create({
   answerItem: {
     marginBottom: em(1),
     padding: em(1),

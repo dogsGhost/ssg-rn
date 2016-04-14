@@ -105,7 +105,7 @@ console.log(err);
         null
 
     return (
-      <View style={s.container}>
+      <View style={styles.container}>
         <Header />
 
         <Button
@@ -141,7 +141,7 @@ console.log(err);
   }
 }
 
-const s = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: em(3.5)

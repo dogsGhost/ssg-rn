@@ -28,10 +28,10 @@ const Match = (props) => {
     <View>
       {
         enText ?
-          <Text style={[s.p, s.result]}>{enText}</Text> :
+          <Text style={[styles.p, styles.result]}>{enText}</Text> :
           false
       }
-      <Text style={[s.p, s.result]}>{esText}</Text>
+      <Text style={[styles.p, styles.result]}>{esText}</Text>
     </View>
   )
 }
@@ -69,13 +69,13 @@ export default class Lookup extends Component {
 
   render() {
     return (
-      <View style={s.container}>
-        <Text style={s.p}>What word are you looking for?</Text>
+      <View style={styles.container}>
+        <Text style={styles.p}>What word are you looking for?</Text>
         <TextInput
           onChangeText={(word) => {
             this.setState({ word })
           }}
-          style={s.wordInput}
+          style={styles.wordInput}
           value={this.state.word}
         />
         {
@@ -88,7 +88,7 @@ export default class Lookup extends Component {
   }
 }
 
-const s = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: em(3.5)

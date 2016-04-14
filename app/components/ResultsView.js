@@ -26,8 +26,8 @@ export default ResultsView = (props) => {
   })
 
   return (
-    <View style={s.container}>
-      <Text style={s.quizScore}>
+    <View style={styles.container}>
+      <Text style={styles.quizScore}>
         <Text style={{ fontWeight: 'bold' }}>You scored {percentage}%</Text> ({numCorrect} out of {dataLen})
       </Text>
       <Button clickHandler={props.onNewQuiz}>
@@ -40,7 +40,7 @@ export default ResultsView = (props) => {
   )
 }
 
-const s = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: em(3.5)

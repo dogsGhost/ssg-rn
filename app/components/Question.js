@@ -68,20 +68,20 @@ export default class Question extends Component {
 
     return (
     <View>
-      <View style={s.progressContainer}>
-        <View style={[s.progressBar1, progressWidth1]}></View>
-        <View style={[s.progressBar2, progressWidth2]}></View>
+      <View style={styles.progressContainer}>
+        <View style={[styles.progressBar1, progressWidth1]}></View>
+        <View style={[styles.progressBar2, progressWidth2]}></View>
       </View>
-      <View style={s.quizContainer}>
-        <Text style={s.quizNumber}>
+      <View style={styles.quizContainer}>
+        <Text style={styles.quizNumber}>
           {this.state.curIndex + 1 + ''}
         </Text>
-        <QuestionText styles={s.quizText}>
+        <QuestionText styles={styles.quizText}>
           {utils.capitalize(data[i].english)}.
         </QuestionText>
         <TextInput
           onChangeText={(curAnswer) => this.setState({ curAnswer })}
-          style={s.quizInput}
+          style={styles.quizInput}
           value={this.state.curAnswer}
         />
         <Button clickHandler={this._handleSubmit}>
@@ -93,7 +93,7 @@ export default class Question extends Component {
   }
 }
 
-const s = StyleSheet.create({
+const styles = StyleSheet.create({
     progressContainer: {
       flexDirection: 'row',
       justifyContent: 'flex-start',

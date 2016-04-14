@@ -54,15 +54,15 @@ console.log('clicked', option);
   render() {
     const val = 'Let\'s Practice!'
     return (
-      <View style={s.container}>
-        <Text style={s.p}>{val}</Text>
+      <View style={styles.container}>
+        <Text style={styles.p}>{val}</Text>
         {this._getButtons()}
       </View>
     )
   }
 }
 
-const s = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: em(3.5)

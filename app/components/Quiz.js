@@ -64,22 +64,22 @@ export default class Quiz extends Component {
     }
 
     return (
-      <View style={s.container} keyboardShouldPersistTaps={false}>
-        <View style={s.instructions}>
-          <Text style={s.p}>Quiz length: </Text>
+      <View style={styles.container} keyboardShouldPersistTaps={false}>
+        <View style={styles.instructions}>
+          <Text style={styles.p}>Quiz length: </Text>
           {
             qLength ?
-              <Text style={s.p}>{this.state.count}</Text>:
+              <Text style={styles.p}>{this.state.count}</Text>:
               <TextInput
                 keyboardType='numeric'
                 maxLength={2}
                 onChangeText={(count) => this.setState({ count })}
-                style={s.instructionsCount}
+                style={styles.instructionsCount}
                 value={this.state.count}
               />
           }
-          <Text style={s.p}>Do not use character accents.</Text>
-          <Text style={s.p}>Dropped pronouns are optional.</Text>
+          <Text style={styles.p}>Do not use character accents.</Text>
+          <Text style={styles.p}>Dropped pronouns are optional.</Text>
         </View>
         {
           qLength ?
@@ -94,7 +94,7 @@ export default class Quiz extends Component {
   }
 }
 
-const s = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: em(3.5)

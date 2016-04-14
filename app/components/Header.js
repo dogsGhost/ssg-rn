@@ -2,10 +2,10 @@ import React, { StyleSheet, Text } from 'react-native'
 import { em, colors } from './../styles/main'
 
 export default Header = () => (
-  <Text style={s.mainHeading}>Spanish Study Guide</Text>
+  <Text style={styles.mainHeading}>Spanish Study Guide</Text>
 )
 
-const s = StyleSheet.create({
+const styles = StyleSheet.create({
   mainHeading: {
     backgroundColor: colors.primaryColor,
     color: colors.white,

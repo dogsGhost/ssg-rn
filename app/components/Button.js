@@ -13,17 +13,17 @@ export default Button = props => {
   return (
     <TouchableHighlight
       onPress={() => props.clickHandler(props.children)}
-      style={[s.btn, btnStyles]}
+      style={[styles.btn, btnStyles]}
       underlayColor={props.activeBtnColor || '#FF7070'}
     >
-      <Text style={[s.btnText, btnTextStyles]}>
+      <Text style={[styles.btnText, btnTextStyles]}>
         {props.children}
       </Text>
     </TouchableHighlight>
   )
 }
 
-const s = StyleSheet.create({
+const styles = StyleSheet.create({
   btn: {
     backgroundColor: colors.primaryColor,
     padding: em(1.75)
