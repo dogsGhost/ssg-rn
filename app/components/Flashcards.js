@@ -7,6 +7,7 @@ import React, {
 } from 'react-native'
 
 import Button from './Button'
+import Cards from './Cards'
 
 import { em, colors } from './../styles/main'
 
@@ -23,19 +24,37 @@ export default class Flashcards extends Component {
 
   _handleSelection(option) {
     option = option.toLowerCase()
-console.log('clicked', option);
-  }
+    let db = this.props.db
+    let data = db.noun
+    // TODO enable options, requires new database schema
+    // determine what dataset to use
+    // if (option == 'all') {
+    //   data = [...db.noun, ...db.pronoun, ...db.verb]
+    // }
+    // if (option === 'nouns') {
+    //   data = [...db.noun, ...db.pronoun]
+    // }
+    // if (option === 'verbs') {
+    //   data = db.verb
+    // }
+    // we only want 12 items
+    if (data.length > 12) {
+      // TODO randomize the items instead of first 12
+      data = data.slice(0, 11)
+    }
+console.log(data);
+    // start review
+    this.setState({ words: data })
 
-  _getBg(color, index) {
-    const key = [0, 3, 7, 'b', 'f']
-    return color.replace('F', key[index])
   }
 
   _getButtons() {
-    const color = colors.primaryColor
-    const options = ['all', ...Object.keys(this.props.db)]
+
+    const options = ['nouns', 'verbs', 'all']
     const buttons = options.map((el, index, src) => {
-      let bg = this._getBg(color, index)
+      let bg = colors.primaryColor.replace('F', 'a')
+      if (index === 0) bg = colors.primaryColor
+      if (index === src.length - 1) bg = colors.green
 
       return (
         <Button
@@ -52,11 +71,20 @@ console.log('clicked', option);
   }
 
   render() {
-    const val = 'Let\'s Practice!'
+    const val = `Let's Practice!`
+    const hasWords = this.state.words.length
+
     return (
       <View style={styles.container}>
         <Text style={styles.p}>{val}</Text>
-        {this._getButtons()}
+        {
+          hasWords ?
+            <Cards
+              words={this.state.words}
+              det={this.props.db.determiner}
+            /> :
+            this._getButtons()
+        }
       </View>
     )
   }
@@ -64,7 +92,6 @@ console.log('clicked', option);
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     marginTop: em(3.5)
   },
 
